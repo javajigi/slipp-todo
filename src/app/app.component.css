@@ -1,0 +1,42 @@
+.todo-input {
+  padding-top: 20px;
+}
+
+.full-width { width: 100%; }
+
+.center { text-align: center; }
+
+.list-item {
+  width: 100%;
+  border-bottom: 1px solid #CCC;
+}
+
+.list-item button .material-icons {
+  font-size: 16px;
+  padding: 0;
+}
+
+.list-item:hover button {
+  display: block;
+}
+
+.list-item button {
+  display: none;
+  float: right;
+  margin: -4px 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.list-item /deep/ .md-checkbox-label {
+  margin: 10px 0;
+}
+
+.completed {
+  color: #9d9d9d;
+  text-decoration: line-through;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
