@@ -1,15 +1,8 @@
 <md-card class="todoapp">
-  <md-toolbar color="primary">
-    <h3>SLiPP TODO</h3>
-    <span class="fill-remaining-space"></span>
-    <button md-mini-fab color="primary">로그인</button>
-  </md-toolbar>
+  <app-header></app-header>
 
-  <md-card-content class="todo-input">
-    <md-input-container class="full-width">
-        <input mdInput placeholder="What needs to be done?"/>
-    </md-input-container>
-  </md-card-content>
+  <app-task-form></app-task-form>
+
   <md-card-content>
   <nav md-tab-nav-bar>
     <a md-tab-link >View All</a>
