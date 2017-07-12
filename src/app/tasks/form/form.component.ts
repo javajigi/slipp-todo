@@ -1,33 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { TaskService } from '../../shared/task-service';
 
 @Component({
   selector: 'app-task-form',
   template: `
-    <md-card-content class="todo-input">
-      <md-input-container class="full-width">
-          <form class="task-form" (ngSubmit)="submit()">
-            <input 
-              [(ngModel)]="title"
-              name="title"
-              type="text"
-              mdInput placeholder="What needs to be done?"/>
-          </form>
-      </md-input-container>
-    </md-card-content>
+    <md-input-container class="todo-input full-width">
+        <form class="task-form" (ngSubmit)="submit()">
+          <input 
+            [(ngModel)]="title"
+            name="title"
+            type="text"
+            mdInput placeholder="What needs to be done?"/>
+        </form>
+    </md-input-container>
   `
   ,
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  title = '';
+  @Input() title = '';
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
   }
 
   submit(): void {
     const title = this.title.trim();
-    console.log('title', title);
+    this.taskService.add(title);
+    this.title = '';
   }
 }
