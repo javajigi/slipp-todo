@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormComponent } from './form.component';
 import { TaskService } from '../../shared/task-service';
@@ -14,7 +15,8 @@ describe('FormComponent', () => {
       declarations: [ FormComponent ],
       imports: [ 
         FormsModule,
-        MaterialModule 
+        MaterialModule,
+        BrowserAnimationsModule
       ],
       providers: [
         TaskService
