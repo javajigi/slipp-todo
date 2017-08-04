@@ -4,25 +4,30 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { TaskService } from './shared/task-service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './tasks/form/form.component';
 import { ListComponent } from './tasks/list/list.component';
+import { ItemComponent } from './tasks/item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FormComponent,
-    ListComponent
+    ListComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [
     TaskService

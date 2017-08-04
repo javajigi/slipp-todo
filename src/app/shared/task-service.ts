@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 
+import { Task } from './task';
+
 @Injectable()
 export class TaskService {
-  private tasks: string[] = [];
+  private tasks: Task[] = [];
 
-  add(title: string): void {
-    this.tasks.push(title);
+  add(task: Task): void {
+    this.tasks.push(task);
   }
 
-  findAll(): string[] {
+  remove(task: Task): void {
+    let index = this.tasks.indexOf(task);
+    if (index > -1) {
+      this.tasks.splice(index, 1);
+    }
+  }
+
+  findAll(): Task[] {
     return this.tasks;
   }
 }

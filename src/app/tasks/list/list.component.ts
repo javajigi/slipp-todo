@@ -4,8 +4,13 @@ import { TaskService } from '../../shared/task-service';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  template: `
+    <md-list>
+      <form>
+        <app-item [task]="task" *ngFor="let task of tasks"></app-item>
+      </form>
+    </md-list>
+  `
 })
 export class ListComponent implements OnInit {
   @Input() tasks: string[];

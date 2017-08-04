@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Task } from '../../shared/task';
 import { TaskService } from '../../shared/task-service';
 
 @Component({
@@ -28,7 +29,7 @@ export class FormComponent implements OnInit {
 
   submit(): void {
     const title = this.title.trim();
-    this.taskService.add(title);
+    this.taskService.add(new Task(title));
     this.title = '';
   }
 }
