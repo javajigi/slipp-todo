@@ -20,4 +20,8 @@ export class ItemComponent implements OnInit {
   remove(task) {
     this.taskService.remove(task);
   }
+
+  toggleStatus(task) {
+    this.task.completed = this.task.completed ? false : true;
+  }
 }

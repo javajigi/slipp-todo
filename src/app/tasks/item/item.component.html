@@ -1,6 +1,20 @@
 <md-list-item class="list-item">
-  <md-checkbox color="primary" type="checkbox">
+  <md-checkbox 
+    *ngIf="!task.completed"
+    (click)="toggleStatus(task)"
+    [checked]="task.completed"
+    color="primary" 
+    type="checkbox">
     <span>{{ task.title }}</span>
+  </md-checkbox>
+
+  <md-checkbox 
+    *ngIf="task.completed"
+    (click)="toggleStatus(task)"
+    [checked]="task.completed"
+    color="primary" 
+    type="checkbox">
+    <span class="completed">{{ task.title }}</span>
   </md-checkbox>
 
   <span>
