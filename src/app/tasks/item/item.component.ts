@@ -27,8 +27,10 @@ export class ItemComponent implements OnInit {
 
   saveTitle() {
     const title = this.title.trim();
-    this.taskService.update(this.task, title);
-    this.editing = false;
+    if (title.length && title !== this.task.title) {
+      this.taskService.update(this.task, title);
+    }
+    this.stopEditing();
   }
 
   stopEditing() {

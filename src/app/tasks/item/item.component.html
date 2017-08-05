@@ -5,7 +5,7 @@
     [checked]="task.completed"
     color="primary" 
     type="checkbox">
-    <span>{{ task.title }}</span>
+    <span title="{{task.title}}">{{ task.title | shorten }}</span>
   </md-checkbox>
 
   <md-checkbox 
@@ -14,8 +14,16 @@
     [checked]="task.completed"
     color="primary" 
     type="checkbox">
-    <span class="completed">{{ task.title }}</span>
+    <span class="completed" title="{{task.title}}">{{ task.title }}</span>
   </md-checkbox>
+
+  <!-- <md-checkbox 
+    (click)="toggleStatus(task)"
+    [checked]="task.completed"
+    color="primary" 
+    type="checkbox">
+    <span [ngClass]="task.completed ? 'completed' : ''">{{ task.title }}</span>
+  </md-checkbox> -->
 
   <span>
     <button md-mini-fab color="primary" (click)="remove(task)">

@@ -14,13 +14,16 @@ import { FormComponent } from './tasks/form/form.component';
 import { ListComponent } from './tasks/list/list.component';
 import { ItemComponent } from './tasks/item/item.component';
 
+import { ShortenPipe } from './shared/shorten-pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FormComponent,
     ListComponent,
-    ItemComponent
+    ItemComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
