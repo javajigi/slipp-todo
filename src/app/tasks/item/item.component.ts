@@ -43,6 +43,6 @@ export class ItemComponent implements OnInit {
   }
 
   toggleStatus(task) {
-    this.task.completed = this.task.completed ? false : true;
+    this.task.completed = !this.task.completed;
   }
 }

@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './tasks/form/form.component';
 import { ListComponent } from './tasks/list/list.component';
+import { ItemComponent } from './tasks/item/item.component';
+
+import { ShortenPipe } from './shared/shorten-pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +22,9 @@ describe('AppComponent', () => {
         AppComponent,
         HeaderComponent,
         FormComponent,
-        ListComponent
+        ListComponent,
+        ItemComponent,
+        ShortenPipe
       ],
       imports: [
         FormsModule,

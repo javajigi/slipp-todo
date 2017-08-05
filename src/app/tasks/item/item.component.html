@@ -14,7 +14,7 @@
     [checked]="task.completed"
     color="primary" 
     type="checkbox">
-    <span class="completed" title="{{task.title}}">{{ task.title }}</span>
+    <span class="completed" title="{{task.title}}">{{ task.title | shorten }}</span>
   </md-checkbox>
 
   <!-- <md-checkbox 

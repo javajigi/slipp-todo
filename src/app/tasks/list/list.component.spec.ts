@@ -1,8 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
+import { Task } from '../../shared/task';
 import { ListComponent } from './list.component';
+import { ItemComponent } from '../item/item.component';
 import { TaskService } from '../../shared/task-service';
+import { ShortenPipe } from '../../shared/shorten-pipe';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -10,8 +15,13 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ],
+      declarations: [ 
+        ListComponent,
+        ItemComponent,
+        ShortenPipe
+      ],
       imports: [
+        FormsModule,
         MaterialModule
       ],
       providers: [

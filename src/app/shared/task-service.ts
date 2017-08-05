@@ -8,7 +8,6 @@ export class TaskService {
 
   add(task: Task): void {
     this.tasks.push(task);
-    console.log(task);
   }
 
   remove(task: Task): void {
