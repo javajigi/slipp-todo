@@ -5,4 +5,8 @@ export class Task {
   constructor(title: string) {
     this.title = title;
   }
+
+  changeTitle(title: string) {
+    this.title = title;
+  }
 }

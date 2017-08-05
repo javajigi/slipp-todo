@@ -17,6 +17,10 @@ export class TaskService {
     }
   }
 
+  update(task: Task, title: string): void {
+    task.changeTitle(title);
+  }
+
   findAll(): Task[] {
     return this.tasks;
   }

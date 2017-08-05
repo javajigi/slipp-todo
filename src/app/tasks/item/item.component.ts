@@ -11,10 +11,29 @@ import { TaskService } from '../../shared/task-service';
 export class ItemComponent implements OnInit {
   @Input() task: Task;
 
+  editing = false;
+  title = '';
+
   constructor(private taskService: TaskService) {
   }
 
   ngOnInit() {
+  }
+
+  editTitle() {
+    this.editing = true;
+    this.title = this.task.title;
+  }
+
+  saveTitle() {
+    const title = this.title.trim();
+    this.taskService.update(this.task, title);
+    this.editing = false;
+  }
+
+  stopEditing() {
+    this.editing = false;
+    this.title = '';
   }
 
   remove(task) {

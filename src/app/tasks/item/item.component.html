@@ -1,4 +1,4 @@
-<md-list-item class="list-item">
+<md-list-item class="list-item" *ngIf="!editing">
   <md-checkbox 
     *ngIf="!task.completed"
     (click)="toggleStatus(task)"
@@ -22,26 +22,25 @@
       <md-icon>delete_forever</md-icon>
     </button>
 
-    <button md-mini-fab color="primary">
+    <button md-mini-fab color="primary" (click)="editTitle()">
       <md-icon>mode_edit</md-icon>
     </button>
   </span>
 </md-list-item>
 
-<!--
-<md-list-item class="list-item">
-  <md-checkbox color="primary" type="checkbox">
-    <span class="completed">완료한 TODO</span>
-  </md-checkbox>
-
+<md-list-item class="list-item" *ngIf="editing">
+  <md-input-container class="task-form">
+    <form (ngSubmit)="saveTitle()">
+        <input 
+          [(ngModel)]="title"
+          name="title"
+          type="text"
+          mdInput/>
+    </form>
+  </md-input-container>
   <span>
-    <button md-mini-fab color="primary">
-      <md-icon>delete_forever</md-icon>
-    </button>
-
-    <button md-mini-fab color="primary">
-      <md-icon>mode_edit</md-icon>
+    <button md-mini-fab color="primary" (click)="stopEditing()">
+      <md-icon>&#xe14c;</md-icon>
     </button>
   </span>
 </md-list-item>
--->
