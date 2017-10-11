@@ -27,8 +27,8 @@ export class ItemComponent implements OnInit {
 
   saveTitle() {
     const title = this.title.trim();
-    if (title.length && title !== this.task.title) {
-      this.taskService.update(this.task, title);
+    if (this.task.isChangeTitle(title)) {
+      this.taskService.update(this.task.key, this.task.changeTitle(title));
     }
     this.stopEditing();
   }
@@ -39,10 +39,10 @@ export class ItemComponent implements OnInit {
   }
 
   remove(task) {
-    this.taskService.remove(task);
+    this.taskService.remove(task.key);
   }
 
-  toggleStatus(task) {
-    this.task.completed = !this.task.completed;
+  toggleStatus() {
+    this.taskService.update(this.task.key, this.task.changeCompleted());
   }
 }

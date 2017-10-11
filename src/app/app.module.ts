@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,6 +18,8 @@ import { ListComponent } from './tasks/list/list.component';
 import { ItemComponent } from './tasks/item/item.component';
 
 import { ShortenPipe } from './shared/shorten-pipe';
+
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,10 @@ import { ShortenPipe } from './shared/shorten-pipe';
     FormsModule,
     HttpModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     TaskService

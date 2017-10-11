@@ -1,12 +1,24 @@
 export class Task {
-  title;
+  key: string;
+  title: string;
   completed = false;
 
-  constructor(title: string) {
+  constructor(title?: string, completed?: boolean) {
     this.title = title;
+    if (typeof completed !== "undefined") {
+      this.completed = completed;
+    }
+  }
+
+  isChangeTitle(title: string) {
+    return title.length && title !== this.title;
   }
 
   changeTitle(title: string) {
-    this.title = title;
+    return new Task(title, this.completed);
+  }
+
+  changeCompleted() {
+    return new Task(this.title, !this.completed);
   }
 }

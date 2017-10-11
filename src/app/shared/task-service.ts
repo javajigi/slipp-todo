@@ -1,27 +1,36 @@
+import { Observable } from 'rxjs/Observable';
+
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 import { Task } from './task';
 
 @Injectable()
 export class TaskService {
-  private tasks: Task[] = [];
+  private tasks: AngularFireList<Task>;
+
+  constructor(private db: AngularFireDatabase) {
+    this.tasks = db.list('/tasks');
+  }
 
   add(task: Task): void {
     this.tasks.push(task);
   }
 
-  remove(task: Task): void {
-    let index = this.tasks.indexOf(task);
-    if (index > -1) {
-      this.tasks.splice(index, 1);
-    }
+  remove(key: string): void {
+    this.tasks.remove(key);
   }
 
-  update(task: Task, title: string): void {
-    task.changeTitle(title);
+  update(key: string, task: Task): void {
+    this.tasks.update(key, task);
   }
 
-  findAll(): Task[] {
-    return this.tasks;
+  findAll(): Observable<any[]> {
+    return this.tasks.snapshotChanges().map(changes => {
+      return changes.map(c => ({ 
+        key: c.payload.key, 
+        ...c.payload.val() }))
+        .map(v => Object.assign(new Task(), v));
+    });
   }
 }
